@@ -69,7 +69,7 @@ class GoogleAnalyticsCheck(AgentCheck):
             tags.append(headers[i].get('name')[3:] + ":" + row[i])
             
         self.gauge("googleanalytics.rt.pageviews", 
-          row[len(row)-1], 
+          int(row[len(row)-1]),
           tags=tags,
           hostname=None,
           device_name=None)
